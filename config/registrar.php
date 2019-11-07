@@ -11,9 +11,19 @@ $bool = true;
 
 $confir = "SELECT * FROM alumno WHERE correo_alumno = '$correo'";
 $confir_correo = mysqli_query($conn, $confir);
-while($i = mysqli_fetch_array($confir_correo)){
-   echo print_r($i);
+if($confir_correo){
+   echo "La variable es true";
+   while($i = mysqli_fetch_array($confir_correo)){
+      echo print_r($i);
+   }
+   echo print_r($confir_correo);
+} else {
+   echo "La variable es false";
+   echo print_r($confir_correo);
 }
+// while($i = mysqli_fetch_array($confir_correo)){
+//    echo print_r($i);
+// }
 
 // echo "<pre>".print_r($i)."</pre>";
 $insertar = "INSERT INTO alumno(nombre_alumno, correo_alumno, contra_alumno, comodin) VALUES ('$nombre', '$correo', '$pass', '$bool')";
