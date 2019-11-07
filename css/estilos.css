@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
+
+body {
+   font-family: 'Raleway', sans-serif;
+}
+
+/* .cabecera-index {
+
+} */
+.cabecera-index .nav-index {
+   border-bottom: 1px solid #e8e8e8;
+}
+.cabecera-index .nav-index .nav-link {
+   margin-right: 2rem;
+}
+.cabecera-index .nav-index .nav-link:last-child {
+   margin-right: 0;
+}
