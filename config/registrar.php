@@ -11,33 +11,20 @@ $bool = true;
 
 $confir = "SELECT * FROM alumno WHERE correo_alumno = '$correo'";
 $confir_correo = mysqli_query($conn, $confir);
-if($confir_correo){
-   echo "La variable es true";
-   while($i = mysqli_fetch_array($confir_correo)){
-      echo print_r($i);
-   }
-   echo print_r($confir_correo);
+$i = mysqli_fetch_array($confir_correo);
+if(count($i) > 0){
+   echo print_r($i);
+   $_SESSION["no-registrado"] = "Este correo electrónico ya esta registrado";
+   header("Location: ../index.php");
 } else {
-   echo "La variable es false";
-   echo print_r($confir_correo);
+   $insertar = "INSERT INTO alumno(nombre_alumno, correo_alumno, contra_alumno, comodin) VALUES ('$nombre', '$correo', '$pass', '$bool')";
+
+   $resultado = mysqli_query($conn, $insertar);
+
+   if (!$resultado) {
+      echo mysqli_error($resultado);
+   }
+   $_SESSION["registrado"] = "Registro exitoso";
+   header("Location: ../index.php");
 }
-// while($i = mysqli_fetch_array($confir_correo)){
-//    echo print_r($i);
-// }
-
-// echo "<pre>".print_r($i)."</pre>";
-$insertar = "INSERT INTO alumno(nombre_alumno, correo_alumno, contra_alumno, comodin) VALUES ('$nombre', '$correo', '$pass', '$bool')";
-
-$resultado = mysqli_query($conn, $insertar);
-
-if (!$resultado) {
-   echo mysqli_error($resultado);
-}
-
-
-
-
-$_SESSION["registrado"] = "Registro exitoso";
-// header("Location: ../index.php");
-
 ?>

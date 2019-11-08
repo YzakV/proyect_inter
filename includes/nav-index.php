@@ -28,7 +28,13 @@
                </div>
                <div class="form-group">
                   <label for="contra">Crea una Constraseña</label>
-                  <input type="password" class="form-control" name="contra" id="contra" placeholder="Contraseña" required>
+                  <div class="input-group">
+                     <input type="password" class="form-control" placeholder="Contraseña" name="contra" id="contra" aria-label="Contraseña">
+                     <div class="input-group-append">
+                        <button class="input-group-text" id="ver-contra">&#216;</button>
+                     </div>
+                  </div>
+                  <!-- <input type="password" class="form-control" name="contra" id="contra" placeholder="Contraseña" required><button id="ver-contra"></button> -->
                </div>
                <div class="form-group">
                   <label for="contra-confir">Repite la Contraseña</label>
