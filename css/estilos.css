@@ -16,3 +16,14 @@ body {
 .cabecera-index .nav-index .nav-link:last-child {
    margin-right: 0;
 }
+.error {
+   border: 1px solid red !important;
+   box-shadow: 0px 0px 2px 1px red !important;
+}
+.valid {
+   border: 1px solid green !important;
+   box-shadow: 0px 0px 2px 1px green !important;
+
+}
+
+
