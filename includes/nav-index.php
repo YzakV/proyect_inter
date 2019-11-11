@@ -29,7 +29,7 @@
                <div class="form-group">
                   <label for="contra">Crea una Constraseña</label>
                   <div class="input-group">
-                     <input type="password" class="form-control" placeholder="Contraseña" name="contra" id="contra" aria-label="Contraseña">
+                     <input type="password" class="form-control" placeholder="Contraseña" name="contra" id="contra" aria-label="Contraseña" required>
                      <div class="input-group-append">
                         <button class="input-group-text" id="ver-contra">&#216;</button>
                      </div>
@@ -38,7 +38,12 @@
                </div>
                <div class="form-group">
                   <label for="contra-confir">Repite la Contraseña</label>
-                  <input type="password" class="form-control" name="contra-confir" id="contra-confir" placeholder="Repite contraseña" required>
+                  <div class="input-group">
+                     <input type="password" class="form-control" name="contra-confir" id="contra-confir" placeholder="Repite contraseña" aria-label="Repite contraseña" required>
+                     <div class="input-group-append">
+                        <button class="input-group-text" id="ver-contra">&#216;</button>
+                     </div>
+                  </div>
                </div>
                <input type="submit" value="Registrar" class="btn btn-primary">
             </form>
@@ -61,7 +66,7 @@
             </button>
          </div>
          <div class="modal-body">
-            <form action="config/iniciar_sesion.php" method="POST" class="" id="form-registro">
+            <form action="config/iniciar_sesion.php" method="POST" class="" id="form-inicio">
                <div class="form-group">
                   <label for="correo-inicio">Correo electrónico</label>
                   <input class="form-control" type="email" name="correo-inicio" id="correo-inicio" placeholder="Tu correo" required>
