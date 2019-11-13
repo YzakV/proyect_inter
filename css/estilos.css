@@ -3,6 +3,12 @@
 body {
    font-family: 'Raleway', sans-serif;
 }
+:root{
+   --color-red: #C41628;
+   --color-white: #ffffff;
+   --color-brown: #251D1E;
+   --color-yellow-brown: #DFAA74;
+}
 
 
 /* Clases utilitarias */
@@ -14,20 +20,70 @@ body {
    border: 1px solid green !important;
    box-shadow: 0px 0px 2px 1px green !important;
 }
+.modal-header {
+   background-color: var(--color-yellow-brown);
+   color: var(--color-brown);
+}
 /* ------------------------ */
 
+.alert {
+   border-radius: 0;
+}
 
-/* .cabecera-index {
 
-} */
+.cabecera-index {
+   background-image: url("../public/images/fondo-2.jpg");
+   background-size: cover;
+   background-position: center center;
+   height: 100vh;
+   z-index: -1;
+}
 .cabecera-index .nav-index {
-   border-bottom: 1px solid #e8e8e8;
+   /* border-bottom: 1px solid #e8e8e8; */
+   background-color: var(--color-brown);
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
 }
 .cabecera-index .nav-index .nav-link {
    margin-right: 2rem;
+   font-weight: 700;
+   color: var(--color-yellow-brown);
+}
+.cabecera-index .nav-index .nav-link:hover {
+   background-color: var(--color-yellow-brown);
+   color: var(--color-brown);
 }
 .cabecera-index .nav-index .nav-link:last-child {
    margin-right: 0;
+}
+.cabecera-index .contenedor-titulo {
+   width: 95%;
+   margin: 0 auto;
+   height: 100%;
+   display: flex;
+   align-items: center;
+}
+.cabecera-index .contenedor-titulo .titulo-principal {
+   max-width: 20rem;
+   font-size: 2.5rem;
+   color: var(--color-brown);
+   /* text-shadow: -22px 35px 5px 0px rgba(0,0,0,0.75); */
+   text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+@media(min-width: 800px){
+   .cabecera-index .contenedor-titulo .titulo-principal {
+      font-size: 4rem;
+      max-width: 30rem;
+   }
+}
+@media(min-width: 1200px){
+   .cabecera-index .contenedor-titulo .titulo-principal {
+      font-size: 6rem;
+      max-width: 40rem;
+      text-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
+   }
 }
 
 

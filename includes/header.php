@@ -6,6 +6,6 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/estilos.css">
-      <title>Inter</title>
+      <title><?= $title; ?></title>
    </head>
    <body class="">
