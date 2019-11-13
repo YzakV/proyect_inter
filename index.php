@@ -5,7 +5,7 @@ include("includes/header.php");
 include("includes/nav-index.php");
 ?>
 
-<?php if(isset($_SESSION["message"])){?>
+<?php if(isset($_SESSION["message"])){ ?>
       <div class="alert alert-<?= $_SESSION["color"]; ?> alert-dismissible fade show" role="alert">
          <p class="mb-0"><?= $_SESSION["message"]; ?></p>
          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -13,7 +13,7 @@ include("includes/nav-index.php");
          </button>
       </div>
    </header>
-<?php session_destroy();  } else { session_destroy();?>
+<?php session_destroy(); } else { session_destroy(); ?>
    </header>
 <?php } ?>
 
