@@ -1,13 +1,12 @@
 <?php
-
 include("connect.php");
-// session_start();
-
 
 $nombre = $_POST["nombre"];
 $correo = $_POST["correo"];
+$usuario = $_POST["usuario"];
 $pass = password_hash($_POST["contra"], PASSWORD_DEFAULT);
-$bool = true;
+$bool = false;
+$alumno_asignado = 1;
 // echo $nombre;
 
 $confir = "SELECT * FROM alumno WHERE correo_alumno = '$correo'";
@@ -22,7 +21,7 @@ if(mysqli_num_rows($confir_correo) > 0){
    $_SESSION["color"] = "danger";
    header("Location: ../index.php");
 } else {
-   $insertar = "INSERT INTO alumno(nombre_alumno, correo_alumno, contra_alumno, comodin) VALUES ('$nombre', '$correo', '$pass', '$bool')";
+   $insertar = "INSERT INTO alumno(alumno_asignado, nombre_alumno, usuario_alumno, correo_alumno, contra_alumno, opciones_alumno) VALUES ('$alumno_asignado', '$nombre', '$usuario', '$correo', '$pass', '$bool')";
 
    $resultado = mysqli_query($conn, $insertar);
 

@@ -92,3 +92,26 @@ body {
 
 
 
+
+.contenedor-home {
+   position: relative;
+}
+.img-fondo-home {
+   position: absolute;
+   width: 100%;
+   height: 300vh;
+   top: 0;
+   left: 0;
+}
+.contenedor-home .contenedor-home-text {
+   height: 100vh;
+
+}
+.contenedor-home .contenedor-home-text2 {
+   height: 100vh;
+}
+.contenedor-home .contenedor-home-text3 {
+   height: 100vh;
+}
+
+

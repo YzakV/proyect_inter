@@ -19,7 +19,10 @@ include("includes/nav-index.php");
 
 
 
-<?php include("includes/footer.php");?>
+<?php 
+include("includes/snow.php");
+include("includes/footer.php");
+?>
 
 
 
