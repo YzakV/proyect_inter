@@ -37,6 +37,9 @@ body {
    left: 0;
    width: 100%;
 }
+.btn {
+   font-size: 1.6rem !important;
+}
 h1 {
    font-size: 4rem !important;
 }
