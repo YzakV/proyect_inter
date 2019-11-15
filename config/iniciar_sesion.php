@@ -11,8 +11,9 @@ if(mysqli_num_rows($r) > 0){
    if(password_verify($pass, $i["contra_alumno"])){
       // echo "Son iguales";
       // session_start();
+      $usuario = explode(" ", $i["nombre_alumno"]);
       $_SESSION["id"] = $i["id_alumno"];
-      $_SESSION["usuario"] = $i["nombre_alumno"];
+      $_SESSION["usuario"] = $usuario[0];
       $_SESSION["correo"] = $i["correo_alumno"];
       $_SESSION["comodin"] = $i["comodin"];
       

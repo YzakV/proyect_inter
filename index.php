@@ -21,6 +21,7 @@ include("includes/nav-index.php");
 
 <?php 
 include("includes/snow.php");
+include("includes/script-index.php");
 include("includes/footer.php");
 ?>
 
