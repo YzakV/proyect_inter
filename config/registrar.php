@@ -3,10 +3,10 @@ include("connect.php");
 
 $nombre = $_POST["nombre"];
 $correo = $_POST["correo"];
-$usuario = $_POST["usuario"];
+$usuario = "";
 $pass = password_hash($_POST["contra"], PASSWORD_DEFAULT);
 $bool = false;
-$alumno_asignado = 1;
+$alumno_asignado = 0;
 // echo $nombre;
 
 $confir = "SELECT * FROM alumno WHERE correo_alumno = '$correo'";

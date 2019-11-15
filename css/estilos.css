@@ -24,8 +24,18 @@ body {
    box-shadow: 0px 0px 2px 1px green !important;
 }
 .modal-header {
-   background-color: var(--color-yellow-brown);
-   color: var(--color-brown);
+   background-color: var(--color-white);
+   color: var(--color-red);
+}
+.modal-header h5 {
+   font-size: 2rem !important;
+   font-weight: 700;
+}
+.close {
+   line-height: .7 !important;
+}
+.close span {
+   font-size: 3rem !important;
 }
 .form-control {
    font-size: 1.6rem !important;
@@ -61,7 +71,7 @@ h5 {
 
 
 .cabecera-index {
-   background-image: url("../public/images/fondo-2.jpg");
+   background-image: url("../public/images/fondo-1.jpg");
    background-size: cover;
    background-position: center center;
    height: 100vh;
@@ -69,7 +79,7 @@ h5 {
 }
 .cabecera-index .nav-index {
    /* border-bottom: 1px solid #e8e8e8; */
-   background-color: var(--color-brown);
+   background-color: var(--color-white);
    position: absolute;
    top: 0;
    left: 0;
@@ -79,13 +89,13 @@ h5 {
 .cabecera-index .nav-index .nav-link {
    margin-right: 2rem;
    font-weight: 700;
-   color: var(--color-yellow-brown);
+   color: var(--color-red);
    font-size: 1.6rem;
    line-height: 30px;
 }
 .cabecera-index .nav-index .nav-link:hover {
-   background-color: var(--color-yellow-brown);
-   color: var(--color-brown);
+   background-color: var(--color-red);
+   color: var(--color-white);
 }
 .cabecera-index .nav-index .nav-link:last-child {
    margin-right: 0;
@@ -100,21 +110,23 @@ h5 {
 .cabecera-index .contenedor-titulo .titulo-principal {
    max-width: 30rem;
    font-size: 2.5rem;
-   color: var(--color-brown);
+   color: var(--color-white);
    /* text-shadow: -22px 35px 5px 0px rgba(0,0,0,0.75); */
-   text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+   /* text-shadow: 0px 0px 10px rgba(0, 0, 0, 1); */
+   text-shadow: 3px 3px 20px black, 0 0 1em black, 0 0 0.2em black;
+
 }
 @media(min-width: 800px){
    .cabecera-index .contenedor-titulo .titulo-principal {
       font-size: 6rem !important;
-      max-width: 40rem;
+      max-width: 45rem;
    }
 }
 @media(min-width: 1200px){
    .cabecera-index .contenedor-titulo .titulo-principal {
       font-size: 8rem !important;
       max-width: 60rem;
-      text-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
+      /* text-shadow: 0px 0px 15px rgba(0, 0, 0, 1); */
    }
 }
 

@@ -18,10 +18,10 @@
                      <label for="nombre">Nombre Completo</label>
                      <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Tu Nombre" required>
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                      <label for="usuario">Crea un nombre de Usuario</label>
                      <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario" required>
-                  </div>
+                  </div> -->
                   <div class="form-group">
                      <label for="correo">Correo Electronico</label>
                      <input class="form-control" type="email" name="correo" id="correo" placeholder="Tu Email" required>
