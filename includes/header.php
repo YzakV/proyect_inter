@@ -8,4 +8,3 @@
       <link rel="stylesheet" href="css/estilos.css">
       <title><?= $title; ?></title>
    </head>
-   <body class="">

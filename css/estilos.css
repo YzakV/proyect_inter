@@ -5,6 +5,7 @@ html {
 body {
    font-family: 'Raleway', sans-serif;
    font-size: 1.6rem;
+   /* overflow: hidden; */
 }
 :root{
    --color-red: #C41628;
@@ -50,6 +51,9 @@ body {
 .btn {
    font-size: 1.6rem !important;
 }
+.hidden {
+   overflow: hidden;
+}
 h1 {
    font-size: 4rem !important;
 }
@@ -75,7 +79,7 @@ h5 {
    background-size: cover;
    background-position: center center;
    height: 100vh;
-   position: relative
+   position: relative;
 }
 .cabecera-index .nav-index {
    /* border-bottom: 1px solid #e8e8e8; */
@@ -149,12 +153,13 @@ h5 {
    position: fixed;
    top: 0;
    left: 0;
+   z-index: -1;
 
 
 }
-
 /* .contenedor-home {
-   /* position: fixed; */
+   /* z-index: 10;
+} */
 .contenedor-home [class*="subcontenedor"] {
    opacity: .8;
    margin: 0;
@@ -200,6 +205,14 @@ h5 {
    margin-bottom: 2rem;
    padding: 2rem;
    border-radius: 1rem;
+}
+
+
+.input-user {
+   border: none;
+   text-align: center;
+}
+.input-user:focus {;
 }
 
 
