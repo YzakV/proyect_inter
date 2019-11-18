@@ -2,19 +2,15 @@
    
 // $('[data-target="#modal-inicio"]').trigger("click");
 
-let expression_pass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/, expression_user = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,}$/;
+let expression_pass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
 let inputs_pass = document.querySelectorAll("input[type=password]"), buttons_pass = document.querySelectorAll("button[class=input-group-text]"), buttons_send = document.querySelectorAll("input[type=submit]"); 
 let form_registro = document.getElementById("form-registro");
-//  user = document.getElementById("usuario");
-
 let input_pass = inputs_pass[0], input_pass_confirm = inputs_pass[1];
 // console.log(typeof(inputs_pass));
 // console.log(inputs_pass[1]);
 // console.log(buttons_pass);
 // console.log(buttons_send);
-let pass = false, confirm_pass = false;
-//  confirm_user = false;
-   
+let pass = false, confirm_pass = false;   
 buttons_pass[0].onclick = (e) => {
    e.preventDefault();
    console.log(expression_pass.test(input_pass.value)); 
@@ -34,18 +30,6 @@ buttons_pass[1].onclick = (e) => {
    }
    input_pass_confirm.focus();
 };
-
-// user.oninput = e =>{
-//    if(expression_user.test(user.value)){
-//       user.classList.add("valid");
-//       user.classList.remove("error");
-//       confirm_user = true;
-//    } else {
-//       user.classList.add("error");
-//       user.classList.remove("valid");
-//       confirm_user = false;
-//    }
-// };
 
 input_pass.oninput = () => {
    // console.log(expression_pass.test(input_pass.value));

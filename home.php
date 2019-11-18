@@ -6,6 +6,22 @@ if(!isset($_SESSION["usuario"])){
    header("Location: index.php");
 }
 $title = "Inicio";
+$mes = date("n");
+$mes = intval($mes);
+define("MESES" , array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"));
+// echo var_dump($mes);
+for($i = 1; $i < count(MESES); $i++){
+   // if($i = 1){
+   //    echo MESES[$i - 1];
+   // }
+   // global $mes;
+   // print_r($mes);
+   // echo MESES[$i]."<br>";
+   if($mes == $i){
+      $mes = MESES[$i - 1];
+   }
+}
+
 include("includes/header.php");
 ?>
    <body>
@@ -28,7 +44,7 @@ include("includes/header.php");
                   <li>La lista de opciones se debe crear con base en el monto minimo y maximo definido para el intercambio. Esta lista debe constar de al menos 3 opciones de regalos; la cual sera enviada a la persona que fuiste asignado</li>
                   <li>Por ultimo, daremos clic en "Guardar" y con esto habremos finalizado el proceso de registro.</li>
                </ul>
-               <p class="font-weight-bold">El registro estara habilitado del día <strong>25</strong> al <strong>29</strong> de <strong>Noviembre</strong>.</p>
+               <p class="font-weight-bold">El registro estara habilitado del día <strong>25</strong> al <strong>29</strong> de <strong><?= $mes; ?></strong>.</p>
                <p class="">A partir del día <strong>2</strong> de <strong>Diciembre</strong>, al iniciar sesión, se podra visualizar el <strong>usuario</strong> y su lista de opciones que te asignaron.</p>
                <ul>
                   <li>
@@ -39,30 +55,88 @@ include("includes/header.php");
                   </li>
                </ul>
                <!-- Button trigger modal -->
-               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-               Launch demo modal
-               </button>
+               <div class="contenedor-boton text-center my-5">
+                  <button type="button" class="btn btn-primary p-3" data-toggle="modal" data-target="#exampleModalCenter">
+                     Crear lista de regalos
+                  </button>
+               </div>
 
                <!-- Modal -->
             </div>
          </div>
       </div>
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+         <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content contenedor-modal-home">
                <div class="modal-header">
-                  <input type="text" class="form-control input-user" placeholder="Coloca aquí tu usuario">
+                  <input type="text" class="input-user" placeholder="Coloca aquí tu usuario" id="user" name="user">
                   <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
                </div>
                <div class="modal-body">
-               ...
+                  <form action="config/guardar.php" method="POST" id="form-home">
+                     <div class="form-group row contenedor-opcion-1">
+                        <label class="col-form-label col-12 col-md-3" for="opcion-1">Opción 1:</label>
+                        <div class="col-12 col-md-9" id="grupo-opcion-1">
+                           <input type="text" class="form-control" id="opcion-1" name="opcion1" required>
+                           <div class="contenedor-check-detalles form-check form-check-inline">
+                              <label class="form-check-input" for="opcion-1-check">Agregar detalles</label>
+                              <input type="checkbox" class="form-check-label" id="opcion-1-check">
+                           </div>
+                        </div>
+                        <div class="mb-3 contenedor-detalles col-12" id="contenedor-detalles">
+                           <!-- is-invalid -->
+                           <label for="textarea-detalles">Detalles</label>
+                           <textarea class="form-control" id="textarea-detalles" placeholder="Agrega detalles sobre tu regalo..."></textarea>
+                           <!-- <div class="invalid-feedback">
+                              Please enter a message in the textarea.
+                           </div> -->
+                        </div>
+                     </div>
+                     <div class="form-group row contenedor-opcion-2">
+                        <label class="col-form-label col-12 col-md-3" for="opcion-2">Opción 2:</label>
+                        <div class="col-12 col-md-9" id="grupo-opcion-2">
+                           <input type="text" class="form-control" id="opcion-2" name="opcion1" required>
+                           <div class="contenedor-check-detalles form-check form-check-inline">
+                              <label class="form-check-input" for="opcion-2-check">Agregar detalles</label>
+                              <input type="checkbox" class="form-check-label" id="opcion-2-check">
+                           </div>
+                        </div>
+                        <div class="mb-3 contenedor-detalles col-12" id="contenedor-detalles">
+                           <!-- is-invalid -->
+                           <label for="textarea-detalles">Detalles</label>
+                           <textarea class="form-control" id="textarea-detalles" placeholder="Agrega detalles sobre tu regalo..."></textarea>
+                           <!-- <div class="invalid-feedback">
+                              Please enter a message in the textarea.
+                           </div> -->
+                        </div>
+                     </div>
+                     <div class="form-group row contenedor-opcion-3">
+                        <label class="col-form-label col-12 col-md-3" for="opcion-3">Opción 3:</label>
+                        <div class="col-12 col-md-9" id="grupo-opcion-3">
+                           <input type="text" class="form-control" id="opcion-3" name="opcion3" required>
+                           <div class="contenedor-check-detalles form-check form-check-inline">
+                              <label class="form-check-input" for="opcion-3-check">Agregar detalles</label>
+                              <input type="checkbox" class="form-check-label" id="opcion-3-check">
+                           </div>
+                        </div>
+                        <div class="mb-3 contenedor-detalles col-12" id="contenedor-detalles">
+                           <!-- is-invalid -->
+                           <label for="textarea-detalles">Detalles</label>
+                           <textarea class="form-control" id="textarea-detalles" placeholder="Agrega detalles sobre tu regalo..."></textarea>
+                           <!-- <div class="invalid-feedback">
+                              Please enter a message in the textarea.
+                           </div> -->
+                        </div>
+                     </div>
+                  </form>
                </div>
                <div class="modal-footer">
-               <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-               <button type="button" class="btn btn-primary">Guardar</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                  <input type="submit" class="btn btn-primary" value="Guardar" id="submit-home"></input>
                </div>
             </div>
          </div>
       </div>
 
+<?php include("includes/script-home.php"); ?>
 <?php include("includes/footer.php"); ?>
