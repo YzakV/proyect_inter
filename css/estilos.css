@@ -12,6 +12,7 @@ body {
    --color-white: #ffffff;
    --color-brown: #251D1E;
    --color-yellow-brown: #DFAA74;
+   --color-azul-agua: #E2F1F1;
 }
 
 
@@ -54,6 +55,9 @@ body {
 .hidden {
    overflow: hidden;
 }
+.jumbotron {
+   background-color: var(--color-azul-agua);
+}
 h1 {
    font-size: 4rem !important;
 }
@@ -65,6 +69,7 @@ h5 {
 }
 .cerrar-sesion {
    font-size: 1.2rem;
+   color: var(--color-red);
 }
 @media(min-width: 576px){
    .cerrar-sesion {
@@ -165,9 +170,9 @@ h5 {
    margin: 0;
    padding: 1rem;
    background-color: var(--color-white);
-
-
 }
+
+
 @media(min-width: 576px) {
    .contenedor-home [class*="subcontenedor"] {
       margin: 2.5rem auto;
@@ -184,7 +189,13 @@ h5 {
    
    }  
 }
-.contenedor-home .contenedor-titulo-home {
+.contenedor-home .subcontenedor-home-1 {
+   display: none;
+}
+.contenedor-home .subcontenedor-home-1:target {
+   display: block;
+}
+.contenedor-titulo-home {
    display: flex;
    align-items: center;
    margin-bottom: 3rem;

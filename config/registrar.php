@@ -1,29 +1,25 @@
 <?php
+session_start();
 include("connect.php");
 
 $nombre = $_POST["nombre"];
 $correo = $_POST["correo"];
-$usuario = "";
-$pass = password_hash($_POST["contra"], PASSWORD_DEFAULT);
-$bool = false;
-$alumno_asignado = 0;
-// echo $nombre;
+$pass = password_hash($_POST["pass"], PASSWORD_DEFAULT);
 
-$confir = "SELECT * FROM alumno WHERE correo_alumno = '$correo'";
-$confir_correo = mysqli_query($conn, $confir);
+$confirm = "SELECT * FROM alumno WHERE correo_alumno = '$correo'";
+$confirm_correo = mysqli_query($conn, $confirm);
 // $i = mysqli_fetch_array($confir_correo);
 // var_dump(mysqli_num_rows($confir_correo));
 // var_dump($i);
-
-if(mysqli_num_rows($confir_correo) > 0){
-   echo print_r($i);
+if(mysqli_num_rows($confirm_correo) > 0){
+   // echo print_r($i);
    $_SESSION["message"] = "Este correo electrónico ya esta registrado";
    $_SESSION["color"] = "danger";
    header("Location: ../index.php");
 } else {
-   $insertar = "INSERT INTO alumno(alumno_asignado, nombre_alumno, usuario_alumno, correo_alumno, contra_alumno, opciones_alumno) VALUES ('$alumno_asignado', '$nombre', '$usuario', '$correo', '$pass', '$bool')";
+   $consulta = "INSERT INTO personas(nombre_persona, correo_persona, pass_persona) VALUES ('$nombre', '$correo', '$pass')";
 
-   $resultado = mysqli_query($conn, $insertar);
+   $resultado = mysqli_query($conn, $consulta);
 
    if (!$resultado) {
       echo mysqli_error($resultado);

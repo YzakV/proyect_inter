@@ -6,7 +6,7 @@ var nieve_cantidad=40;
 var nieve_colorr=new Array("#aaaacc","#ddddFF","#ccccDD")
 
 // Tipo de letra de los copos
-var nieve_tipo=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS")
+var nieve_tipo=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS","Wingdings")
 
 // Valor o letra de los copos
 var nieve_letra="*"

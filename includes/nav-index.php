@@ -18,38 +18,33 @@
                      <label for="nombre">Nombre Completo</label>
                      <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Tu Nombre" required>
                   </div>
-                  <!-- <div class="form-group">
-                     <label for="usuario">Crea un nombre de Usuario</label>
-                     <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario" required>
-                  </div> -->
                   <div class="form-group">
                      <label for="correo">Correo Electronico</label>
                      <input class="form-control" type="email" name="correo" id="correo" placeholder="Tu Email" required>
                   </div>
                   <div class="form-group">
-                     <label for="contra">Crea una Constraseña</label>
+                     <label for="pass">Crea una Constraseña</label>
                      <div class="input-group">
-                        <input type="password" class="form-control" placeholder="Contraseña" name="contra" id="contra" aria-label="Contraseña" required>
+                        <input type="password" class="form-control" placeholder="Contraseña" name="pass" id="pass" aria-label="Contraseña" data-toggle="tooltip" data-placement="bottom" title="Minimo 6 caracteres, entre minúsculas, mayúsculas y al menos un numero" required>
                         <div class="input-group-append">
-                           <button class="input-group-text" id="ver-contra">&#216;</button>
+                           <button class="input-group-text" id="ver-pass"><i class="fas fa-eye"></i></button>
                         </div>
                      </div>
-                     <!-- <input type="password" class="form-control" name="contra" id="contra" placeholder="Contraseña" required><button id="ver-contra"></button> -->
                   </div>
                   <div class="form-group">
-                     <label for="contra-confir">Repite la Contraseña</label>
+                     <label for="pass-confirm">Repite la Contraseña</label>
                      <div class="input-group">
-                        <input type="password" class="form-control" name="contra-confir" id="contra-confir" placeholder="Repite contraseña" aria-label="Repite contraseña" required>
+                        <input type="password" class="form-control" name="pass-confirm" id="pass-confirm" placeholder="Repite contraseña" aria-label="Repite contraseña" required>
                         <div class="input-group-append">
-                           <button class="input-group-text" id="ver-contra">&#216;</button>
+                           <button class="input-group-text" id="ver-pass"><i class="fas fa-eye"></i></button>
                         </div>
                      </div>
                   </div>
-                  <input type="submit" value="Registrar" class="btn btn-primary">
+                  <input type="submit" value="Registrar" class="btn btn-outline-info my-3">
                </form>
             </div>
             <div class="modal-footer">
-               <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+               <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
             </div>
          </div>
@@ -72,14 +67,14 @@
                      <input class="form-control" type="email" name="correo-inicio" id="correo-inicio" placeholder="Tu correo" required>
                   </div>
                   <div class="form-group">
-                     <label for="contra-inicio">Contraseña</label>
-                     <input class="form-control" type="password" name="contra-inicio" id="contra-inicio" placeholder="Tu contraseña" required>
+                     <label for="pass-inicio">Contraseña</label>
+                     <input class="form-control" type="password" name="pass-inicio" id="pass-inicio" placeholder="Tu contraseña" required>
                   </div>
-                  <input type="submit" value="Iniciar sesión" class="btn btn-primary">
+                  <input type="submit" value="Iniciar sesión" class="btn btn-outline-info my-3">
                </form>
             </div>
             <div class="modal-footer">
-               <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+               <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
             </div>
          </div>
