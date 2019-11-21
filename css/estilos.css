@@ -25,6 +25,9 @@ body {
    border: 1px solid green !important;
    box-shadow: 0px 0px 2px 1px green !important;
 }
+.modal {
+   padding: 0 !important;
+}
 .modal-header {
    background-color: var(--color-white);
    color: var(--color-red);
@@ -57,6 +60,17 @@ body {
 }
 .jumbotron {
    background-color: var(--color-azul-agua);
+}
+.men {
+   background-color: #16A8EC;
+   color: var(--color-white);
+   font-weight: 700;
+}
+.women {
+   background-color: #EE528B;
+   color: var(--color-white);
+   font-weight: 700;
+   
 }
 h1 {
    font-size: 4rem !important;
@@ -267,7 +281,7 @@ h5 {
    width: auto;
 }
 .contenedor-genero .form-check .form-check-label {
-   padding: .5rem;
+   padding: .1rem .5rem;
 }
 .contenedor-check-detalles {
    width: 100%;

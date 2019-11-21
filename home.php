@@ -80,22 +80,22 @@ include("includes/header.php");
          </div>
       </div>
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-scrollable" role="document">
+         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
             <div class="modal-content contenedor-modal-home">
                <div class="modal-header">
                   <input type="text" class="input-user" placeholder="Crea tu usuario aquí" id="user" name="user">
                   <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
                </div>
                <div class="modal-body">
-                  <div class="contenedor-genero">
-                     <p class="my-0 mr-0 mr-md-3">Selecciona tu genero:</p>
+                  <div class="contenedor-genero mb-3">
+                     <p class="my-0 mr-3 mr-md-5">Selecciona tu género:</p>
                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="genero" value="F" id="inlineCheckbox1">
-                        <label class="form-check-label" for="inlineCheckbox1">Mujer</label>
+                        <input class="form-check-input" type="radio" name="genero" value="F" id="radio-mujer">
+                        <label class="form-check-label" for="radio-mujer">Mujer</label>
                      </div>
                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="genero" value="M" id="inlineCheckbox2">
-                        <label class="form-check-label" for="inlineCheckbox2">Hombre</label>
+                        <input class="form-check-input" type="radio" name="genero" value="M" id="radio-hombre">
+                        <label class="form-check-label" for="radio-hombre">Hombre</label>
                      </div>
                   </div>
                   <form action="config/guardar.php" method="POST" id="form-home">
@@ -120,7 +120,7 @@ include("includes/header.php");
                      <div class="form-group row contenedor-opcion-2">
                         <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-2">Opción 2:</label>
                         <div class="col-12 col-md-9" id="grupo-opcion-2">
-                           <input type="text" class="form-control" id="opcion-2" name="opcion1" required>
+                           <input type="text" class="form-control" id="opcion-2" name="opcion2" required>
                            <div class="contenedor-check-detalles form-check form-check-inline">
                               <label class="form-check-input" for="opcion-2-check">Agregar detalles</label>
                               <input type="checkbox" class="form-check-label" id="opcion-2-check">
