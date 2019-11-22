@@ -1,12 +1,11 @@
 <script>
    let expression_user = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,}$/;
    let user = document.getElementById("user"), grupoOpcion = document.querySelectorAll("[class*=contenedor-detalles]"), check = document.querySelectorAll("input[type=checkbox]"), tAreas = document.querySelectorAll("[id=textarea-detalles]"), radio = document.querySelectorAll("input[type=radio]"), labels = document.querySelectorAll("label[for^=radio]"), input_opcion = document.querySelectorAll("input[type=text][id^=opcion]");
-   console.log(input_opcion);
+   // console.log(input_opcion);
    // console.log(labels);
    // console.log(tAreas);
 
-   let confirm_user = false;
-   let confirm_opcion = false;
+   let confirm_user = false, confirm_inputs = []; 
 
    user.onfocus = () => {
       if(!expression_user.test(user.value)){
@@ -74,25 +73,95 @@
    };
 
 
+   // function validar_inputs(input_opcion){
+   //    if(input_opcion > 0){
+   //       return true;
+   //    } else {
+   //       return false;
+   //    }
+   // }
 
    let formHome = document.getElementById("form-home"), botonHome = document.getElementById("submit-home");
-   botonHome.onclick = () => {
-
-      input_opcion.forEach(e => {
-         if(e.value.length > 0){
-            console.log(e + "Esta lleno");
-            confirm_opcion = true;
-            
-         } else {
-            console.log(e + "Esta vacio");
-            confirm_opcion = false;
-
-         }
-      });
-      console.log(confirm_opcion);
+   formHome.onsubmit = (e) => {
       if(confirm_user){
-         
-         formHome.submit();
+         // if(radio[0].checked || radio[1].checked){
+
+         // } else {
+            
+         // }
+         input_opcion.forEach(e => {
+            if(e.value.length > 0){
+               // console.log(e + "Esta lleno");
+               confirm_inputs.push(true);
+            } else {
+               // console.log(e + "Esta vacio");
+               confirm_inputs.push(false);
+
+            }
+         });
+         let falso = confirm_inputs.indexOf(false); 
+         console.log(falso);
+         if(falso != -1){
+            console.log("Alguno o todos estan vacios");
+            input_opcion[falso].focus();
+            e.preventDefault();
+         } else {
+            console.log("Todos estan llenos");
+            // formHome.submit();
+         }
+         // console.log(confirm_inputs);
+
+
+      } else {
+         e.preventDefault();
+         user.focus();
       }
+      
+
+
+      
+      // for(let i in input_opcion){
+      //    console.log(input_opcion[i].value.length);
+         
+         // console.log(i);
+         // console.log(input_opcion[i]);
+      // }
+
+
+
+      // if(input_opcion[0].value.length > 0){
+
+      // }
+      
+      // console.log(confirm_opcion);
+      // 
+         
+      //    
+      // }
+      confirm_inputs = [];
    };
+//===========================================================
+// var guardar = document.querySelector('#submit-home')
+// var form =  document.querySelector('#form-home')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// guardar.onclick = () => {
+//    console.log(form[0].value)
+// };
 </script>

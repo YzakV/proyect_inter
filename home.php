@@ -79,89 +79,93 @@ include("includes/header.php");
             </div>
          </div>
       </div>
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
-            <div class="modal-content contenedor-modal-home">
-               <div class="modal-header">
-                  <input type="text" class="input-user" placeholder="Crea tu usuario aquí" id="user" name="user">
-                  <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
-               </div>
-               <div class="modal-body">
-                  <div class="contenedor-genero mb-3">
-                     <p class="my-0 mr-3 mr-md-5">Selecciona tu género:</p>
-                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="genero" value="F" id="radio-mujer">
-                        <label class="form-check-label" for="radio-mujer">Mujer</label>
-                     </div>
-                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="genero" value="M" id="radio-hombre">
-                        <label class="form-check-label" for="radio-hombre">Hombre</label>
-                     </div>
+      <form action="config/guardar.php" method="POST" id="form-home">
+         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+               <div class="modal-content contenedor-modal-home">
+                  <div class="modal-header">
+                     <input type="text" class="input-user" placeholder="Crea tu usuario aquí" id="user" name="user" required>
+                     <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
                   </div>
-                  <form action="config/guardar.php" method="POST" id="form-home">
-                     <div class="form-group row contenedor-opcion-1">
-                        <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-1">Opción 1:</label>
-                        <div class="col-12 col-md-9" id="grupo-opcion-1">
-                           <input type="text" class="form-control" id="opcion-1" name="opcion1" required>
-                           <div class="contenedor-check-detalles form-check form-check-inline">
-                              <label class="form-check-input" for="opcion-1-check">Agregar detalles</label>
-                              <input type="checkbox" class="form-check-label" id="opcion-1-check">
+                  <div class="modal-body">
+                        <div class="contenedor-genero mb-3">
+                           <p class="my-0 mr-3 mr-md-5">Selecciona tu género:</p>
+                           <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="genero" value="F" id="radio-mujer">
+                              <label class="form-check-label" for="radio-mujer">Mujer</label>
+                           </div>
+                           <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="genero" value="M" id="radio-hombre">
+                              <label class="form-check-label" for="radio-hombre">Hombre</label>
                            </div>
                         </div>
-                        <div class="mb-3 contenedor-detalles col-12" id="contenedor-detalles">
-                           <!-- is-invalid -->
-                           <label for="textarea-detalles">Detalles</label>
-                           <textarea class="form-control textarea-detalles" id="textarea-detalles" placeholder="Agrega detalles sobre tu regalo..."></textarea>
-                           <!-- <div class="invalid-feedback">
-                              Please enter a message in the textarea.
-                           </div> -->
-                        </div>
-                     </div>
-                     <div class="form-group row contenedor-opcion-2">
-                        <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-2">Opción 2:</label>
-                        <div class="col-12 col-md-9" id="grupo-opcion-2">
-                           <input type="text" class="form-control" id="opcion-2" name="opcion2" required>
-                           <div class="contenedor-check-detalles form-check form-check-inline">
-                              <label class="form-check-input" for="opcion-2-check">Agregar detalles</label>
-                              <input type="checkbox" class="form-check-label" id="opcion-2-check">
+                        <div class="form-group row contenedor-opcion-1">
+                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-1">Opción 1:</label>
+                           <div class="col-12 col-md-9" id="grupo-opcion-1">
+                              <input type="text" class="form-control" id="opcion-1" name="opcion1" required>
+                              <div class="contenedor-check-detalles form-check form-check-inline">
+                                 <label class="form-check-input" for="opcion-1-check">Agregar detalles</label>
+                                 <input type="checkbox" class="form-check-label" id="opcion-1-check">
+                              </div>
+                           </div>
+                           <div class="mb-3 contenedor-detalles col-12" id="contenedor-detalles">
+                              <!-- is-invalid -->
+                              <label for="textarea-detalles">Detalles</label>
+                              <textarea class="form-control textarea-detalles" id="textarea-detalles" placeholder="Agrega detalles sobre tu regalo..."></textarea>
+                              <!-- <div class="invalid-feedback">
+                                 Please enter a message in the textarea.
+                              </div> -->
                            </div>
                         </div>
-                        <div class="mb-3 contenedor-detalles col-12" id="contenedor-detalles">
-                           <!-- is-invalid -->
-                           <label for="textarea-detalles">Detalles</label>
-                           <textarea class="form-control textarea-detalles" id="textarea-detalles" placeholder="Agrega detalles sobre tu regalo..."></textarea>
-                           <!-- <div class="invalid-feedback">
-                              Please enter a message in the textarea.
-                           </div> -->
-                        </div>
-                     </div>
-                     <div class="form-group row contenedor-opcion-3">
-                        <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-3">Opción 3:</label>
-                        <div class="col-12 col-md-9" id="grupo-opcion-3">
-                           <input type="text" class="form-control" id="opcion-3" name="opcion3" required>
-                           <div class="contenedor-check-detalles form-check form-check-inline">
-                              <label class="form-check-input" for="opcion-3-check">Agregar detalles</label>
-                              <input type="checkbox" class="form-check-label" id="opcion-3-check">
+                        <div class="form-group row contenedor-opcion-2">
+                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-2">Opción 2:</label>
+                           <div class="col-12 col-md-9" id="grupo-opcion-2">
+                              <input type="text" class="form-control" id="opcion-2" name="opcion2" required>
+                              <div class="contenedor-check-detalles form-check form-check-inline">
+                                 <label class="form-check-input" for="opcion-2-check">Agregar detalles</label>
+                                 <input type="checkbox" class="form-check-label" id="opcion-2-check">
+                              </div>
+                           </div>
+                           <div class="mb-3 contenedor-detalles col-12" id="contenedor-detalles">
+                              <!-- is-invalid -->
+                              <label for="textarea-detalles">Detalles</label>
+                              <textarea class="form-control textarea-detalles" id="textarea-detalles" placeholder="Agrega detalles sobre tu regalo..."></textarea>
+                              <!-- <div class="invalid-feedback">
+                                 Please enter a message in the textarea.
+                              </div> -->
                            </div>
                         </div>
-                        <div class="mb-3 contenedor-detalles col-12" id="contenedor-detalles">
-                           <!-- is-invalid -->
-                           <label for="textarea-detalles">Detalles</label>
-                           <textarea class="form-control textarea-detalles" id="textarea-detalles" placeholder="Agrega detalles sobre tu regalo..."></textarea>
-                           <!-- <div class="invalid-feedback">
-                              Please enter a message in the textarea.
-                           </div> -->
+                        <div class="form-group row contenedor-opcion-3">
+                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-3">Opción 3:</label>
+                           <div class="col-12 col-md-9" id="grupo-opcion-3">
+                              <input type="text" class="form-control" id="opcion-3" name="opcion3" required>
+                              <div class="contenedor-check-detalles form-check form-check-inline">
+                                 <label class="form-check-input" for="opcion-3-check">Agregar detalles</label>
+                                 <input type="checkbox" class="form-check-label" id="opcion-3-check">
+                              </div>
+                           </div>
+                           <div class="mb-3 contenedor-detalles col-12" id="contenedor-detalles">
+                              <!-- is-invalid -->
+                              <label for="textarea-detalles">Detalles</label>
+                              <textarea class="form-control textarea-detalles" id="textarea-detalles" placeholder="Agrega detalles sobre tu regalo..."></textarea>
+                              <!-- <div class="invalid-feedback">
+                                 Please enter a message in the textarea.
+                              </div> -->
+                           </div>
                         </div>
-                     </div>
-                  </form>
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
-                  <input type="submit" class="btn btn-outline-info" value="Guardar" id="submit-home"></input>
+                        <!-- <div class="contenedor-input">
+                           <label for="texto">Correo</label>
+                           <input type="email" placeholder="Coloca tu correo" id="texto">
+                        </div> -->
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+                     <input type="submit" class="btn btn-outline-info" value="Guardar" id="submit-home"></input>
+                  </div>
                </div>
             </div>
          </div>
-      </div>
+      </form>
 
 <?php include("includes/script-home.php"); ?>
 <?php include("includes/footer.php"); ?>

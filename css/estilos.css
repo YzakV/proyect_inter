@@ -304,3 +304,30 @@ input[id^="opcion"] {
 }
 
 
+/* PRUEBA */
+/* .contenedor-input {
+   display: flex;
+   align-items: center;
+   background-color: rgba(72, 129, 139, .4);
+   padding: 20px;
+
+}
+.contenedor-input label{
+   flex-basis: 30%;
+
+} 
+.contenedor-input input {
+   flex-basis: 70%;
+   border: none;
+   padding: 10px 15px;
+} 
+.contenedor-input label {
+   text-align: center;
+   margin: 0;
+}
+
+@media(){
+
+} */
+
+
