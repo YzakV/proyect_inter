@@ -3,7 +3,7 @@ session_start();
 // print_r($_SESSION);
 // die();
 // echo '<pre>'.print_r($_SESSION,1).'</pre>';die();
-if(isset($_SESSION["usuario"])){
+if(isset($_SESSION["persona"])){
    header("Location: home.php");
    exit(1);
 }

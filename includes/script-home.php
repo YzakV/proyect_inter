@@ -84,11 +84,6 @@
    let formHome = document.getElementById("form-home"), botonHome = document.getElementById("submit-home");
    formHome.onsubmit = (e) => {
       if(confirm_user){
-         // if(radio[0].checked || radio[1].checked){
-
-         // } else {
-            
-         // }
          input_opcion.forEach(e => {
             if(e.value.length > 0){
                // console.log(e + "Esta lleno");
@@ -107,9 +102,7 @@
             e.preventDefault();
          } else {
             console.log("Todos estan llenos");
-            // formHome.submit();
          }
-         // console.log(confirm_inputs);
 
 
       } else {

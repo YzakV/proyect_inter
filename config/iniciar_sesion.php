@@ -10,8 +10,8 @@ if(mysqli_num_rows($r) > 0){
    if(password_verify($pass, $i["pass_persona"])){
       // echo "Son iguales";
       session_start();
-      $usuario = explode(" ", $i["nombre_persona"]);
-      $_SESSION["usuario"] = $usuario[0];
+      $persona = explode(" ", $i["nombre_persona"]);
+      $_SESSION["persona"] = $persona[0];
       $_SESSION["id"] = $i["id_persona"];
       $_SESSION["correo"] = $i["correo_persona"];
       // echo '<pre>'.print_r($_SESSION,1).'</pre>';die();

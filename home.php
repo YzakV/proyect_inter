@@ -3,8 +3,16 @@ session_start();
 // echo '<pre>'.print_r($_SESSION,1).'</pre>';
 include("config/connect.php");
 
-if(!isset($_SESSION["usuario"])){
+if(!isset($_SESSION["persona"])){
    header("Location: index.php");
+}
+$id_persona = $_SESSION["id"];
+$consulta = "SELECT id_usuario, nombre_usuario FROM usuarios INNER JOIN personas ON personas.id_persona = usuarios.id_persona WHERE personas.id_persona = '$id_persona'";
+$r = mysqli_query($conn, $consulta);
+// echo $r;
+// die();
+if(mysqli_num_rows($r) > 0){
+   header("Location: guardado.php");
 }
 $title = "Inicio";
 $mes = date("n");
@@ -28,10 +36,10 @@ include("includes/header.php");
    <body>
       <!-- <div class="jumbotron">
          <div class="contenedor-titulo-home" id="contenedor-titulo-home">
-            <h1 class="titulo-home">¡Hola <?php echo $_SESSION["usuario"]; ?>!</h1>
+            <h1 class="titulo-home">¡Hola <?php echo $_SESSION["persona"]; ?>!</h1>
             <a class="cerrar-sesion" href="config/cerrar.php">X Cerrar sesión</a>
          </div> -->
-         <!-- <h1 class="display-4">Hola, <?= $_SESSION["usuario"] ?>!</h1> -->
+         <!-- <h1 class="display-4">Hola, <?= $_SESSION["persona"] ?>!</h1> -->
          <!-- <h2 class="subtitulo-home">Te damos la bienvenida al <strong>Intercambio Navideño 2019</strong></h2> -->
          <!-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> -->
          <!-- <hr class="my-4">
@@ -43,7 +51,7 @@ include("includes/header.php");
          <div class="row">
             <div class="col-12 col-sm-11 col-md-6 subcontenedor-home-1" id="subcontenedor-home-1">
                <div class="contenedor-titulo-home" id="contenedor-titulo-home">
-                  <h1 class="titulo-home">¡Hola <?php echo $_SESSION["usuario"]; ?>!</h1>
+                  <h1 class="titulo-home">¡Hola <?php echo $_SESSION["persona"]; ?>!</h1>
                   <a class="cerrar-sesion" href="config/cerrar.php">X Cerrar sesión</a>
                </div>
                <h2 class="subtitulo-home">Te damos la bienvenida al <strong>Intercambio Navideño 2019</strong></h2>
@@ -91,11 +99,11 @@ include("includes/header.php");
                         <div class="contenedor-genero mb-3">
                            <p class="my-0 mr-3 mr-md-5">Selecciona tu género:</p>
                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="genero" value="F" id="radio-mujer">
+                              <input class="form-check-input" type="radio" name="genero" value="F" id="radio-mujer" required>
                               <label class="form-check-label" for="radio-mujer">Mujer</label>
                            </div>
                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="genero" value="M" id="radio-hombre">
+                              <input class="form-check-input" type="radio" name="genero" value="M" id="radio-hombre" required>
                               <label class="form-check-label" for="radio-hombre">Hombre</label>
                            </div>
                         </div>
@@ -111,7 +119,7 @@ include("includes/header.php");
                            <div class="mb-3 contenedor-detalles col-12" id="contenedor-detalles">
                               <!-- is-invalid -->
                               <label for="textarea-detalles">Detalles</label>
-                              <textarea class="form-control textarea-detalles" id="textarea-detalles" placeholder="Agrega detalles sobre tu regalo..."></textarea>
+                              <textarea class="form-control textarea-detalles" id="textarea-detalles" name="detalle-1" placeholder="Agrega detalles sobre tu regalo..."></textarea>
                               <!-- <div class="invalid-feedback">
                                  Please enter a message in the textarea.
                               </div> -->
@@ -129,7 +137,7 @@ include("includes/header.php");
                            <div class="mb-3 contenedor-detalles col-12" id="contenedor-detalles">
                               <!-- is-invalid -->
                               <label for="textarea-detalles">Detalles</label>
-                              <textarea class="form-control textarea-detalles" id="textarea-detalles" placeholder="Agrega detalles sobre tu regalo..."></textarea>
+                              <textarea class="form-control textarea-detalles" id="textarea-detalles" name="detalle-2" placeholder="Agrega detalles sobre tu regalo..."></textarea>
                               <!-- <div class="invalid-feedback">
                                  Please enter a message in the textarea.
                               </div> -->
@@ -147,7 +155,7 @@ include("includes/header.php");
                            <div class="mb-3 contenedor-detalles col-12" id="contenedor-detalles">
                               <!-- is-invalid -->
                               <label for="textarea-detalles">Detalles</label>
-                              <textarea class="form-control textarea-detalles" id="textarea-detalles" placeholder="Agrega detalles sobre tu regalo..."></textarea>
+                              <textarea class="form-control textarea-detalles" id="textarea-detalles" name="detalle-3" placeholder="Agrega detalles sobre tu regalo..."></textarea>
                               <!-- <div class="invalid-feedback">
                                  Please enter a message in the textarea.
                               </div> -->
