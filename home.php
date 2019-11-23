@@ -11,10 +11,9 @@ $consulta = "SELECT id_usuario, nombre_usuario FROM usuarios INNER JOIN personas
 $r = mysqli_query($conn, $consulta);
 // echo $r;
 // die();
-if(mysqli_num_rows($r) > 0){
-   header("Location: guardado.php");
-}
-$title = "Inicio";
+// if(mysqli_num_rows($r) > 0){
+//    header("Location: guardado.php");
+// }
 $mes = date("n");
 $mes = intval($mes);
 define("MESES" , array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"));
@@ -30,7 +29,7 @@ for($i = 1; $i < count(MESES); $i++){
       $mes = MESES[$i - 1];
    }
 }
-
+$title = "Inicio";
 include("includes/header.php");
 ?>
    <body>
@@ -175,5 +174,7 @@ include("includes/header.php");
          </div>
       </form>
 
-<?php include("includes/script-home.php"); ?>
-<?php include("includes/footer.php"); ?>
+<?php 
+include("includes/script-home.php");
+include("includes/footer.php"); 
+?>

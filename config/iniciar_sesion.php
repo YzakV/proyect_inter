@@ -37,4 +37,3 @@ if(mysqli_num_rows($r) > 0){
 // print_r($_SESSION);
 // print_r($_POST);
 // echo 'furulante';
-?>

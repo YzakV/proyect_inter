@@ -4,8 +4,7 @@
    // console.log(input_opcion);
    // console.log(labels);
    // console.log(tAreas);
-
-   let confirm_user = false, confirm_inputs = []; 
+   let confirm_user = false, confirm_inputs = [], formHome = document.getElementById("form-home"), botonHome = document.getElementById("submit-home");
 
    user.onfocus = () => {
       if(!expression_user.test(user.value)){
@@ -72,43 +71,51 @@
       }
    };
 
-
-   // function validar_inputs(input_opcion){
-   //    if(input_opcion > 0){
-   //       return true;
-   //    } else {
-   //       return false;
-   //    }
-   // }
-
-   let formHome = document.getElementById("form-home"), botonHome = document.getElementById("submit-home");
    formHome.onsubmit = (e) => {
-      if(confirm_user){
-         input_opcion.forEach(e => {
-            if(e.value.length > 0){
-               // console.log(e + "Esta lleno");
-               confirm_inputs.push(true);
+      e.preventDefault();
+      let valor_user = user.value;
+      $.ajax({
+         url: "config/validar_user.php",
+         type: "POST",
+         dataType: "JSON",
+         data: {valor_user}
+      }).done(respuesta => {
+         if(respuesta){
+            if(confirm_user){
+               input_opcion.forEach(e => {
+                  if(e.value.length > 0){
+                     // console.log(e + "Esta lleno");
+                     confirm_inputs.push(true);
+                  } else {
+                     // console.log(e + "Esta vacio");
+                     confirm_inputs.push(false);
+
+                  }
+               });
+               let falso = confirm_inputs.indexOf(false); 
+               // console.log(falso);
+               if(falso != -1){
+                  // console.log("Alguno o todos estan vacios");
+                  input_opcion[falso].focus();
+                  e.preventDefault();
+               } else {
+                  // console.log("Todos estan llenos");
+                  formHome.submit();
+               }
+
+
             } else {
-               // console.log(e + "Esta vacio");
-               confirm_inputs.push(false);
-
+               e.preventDefault();
+               user.focus();
             }
-         });
-         let falso = confirm_inputs.indexOf(false); 
-         console.log(falso);
-         if(falso != -1){
-            console.log("Alguno o todos estan vacios");
-            input_opcion[falso].focus();
-            e.preventDefault();
          } else {
-            console.log("Todos estan llenos");
+            e.preventDefault();
+            user.focus();
          }
-
-
-      } else {
-         e.preventDefault();
-         user.focus();
-      }
+      }).fail(() => {
+         console.log("Error");
+      });
+      
       
 
 
@@ -136,25 +143,4 @@
 //===========================================================
 // var guardar = document.querySelector('#submit-home')
 // var form =  document.querySelector('#form-home')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// guardar.onclick = () => {
-//    console.log(form[0].value)
-// };
 </script>
