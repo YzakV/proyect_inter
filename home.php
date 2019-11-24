@@ -11,9 +11,11 @@ $consulta = "SELECT id_usuario, nombre_usuario FROM usuarios INNER JOIN personas
 $r = mysqli_query($conn, $consulta);
 // echo $r;
 // die();
-// if(mysqli_num_rows($r) > 0){
-//    header("Location: guardado.php");
-// }
+$i = mysqli_fetch_array($r);
+$_SESSION["id_user"] = $i["id_usuario"];
+if(mysqli_num_rows($r) > 0){
+   header("Location: guardado.php");
+}
 $mes = date("n");
 $mes = intval($mes);
 define("MESES" , array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"));

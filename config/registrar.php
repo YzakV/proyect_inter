@@ -1,6 +1,10 @@
 <?php
 session_start();
 include("connect.php");
+if(!isset($_POST["nombre"])){
+   header("Location: ../index.php");
+   exit(1);
+}
 
 $nombre = $_POST["nombre"];
 $correo = $_POST["correo"];
