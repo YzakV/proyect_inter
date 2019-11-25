@@ -11,9 +11,10 @@ $consulta = "SELECT id_usuario, nombre_usuario FROM usuarios INNER JOIN personas
 $r = mysqli_query($conn, $consulta);
 // echo $r;
 // die();
-$i = mysqli_fetch_array($r);
-$_SESSION["id_user"] = $i["id_usuario"];
+
 if(mysqli_num_rows($r) > 0){
+   $i = mysqli_fetch_array($r);
+   $_SESSION["id_user"] = $i["id_usuario"];
    header("Location: guardado.php");
 }
 $mes = date("n");
@@ -66,7 +67,7 @@ include("includes/header.php");
                   <li>La lista de opciones se debe crear con base en el monto minimo y maximo definido para el intercambio. Esta lista debe constar de al menos 3 opciones de regalos; la cual sera enviada a la persona que fuiste asignado</li>
                   <li>Por ultimo, daremos clic en "Guardar" y con esto habremos finalizado el proceso de registro.</li>
                </ul>
-               <p class="font-weight-bold">El registro estara habilitado del día <strong>25</strong> al <strong>29</strong> de <strong><?= $mes; ?></strong>.</p>
+               <p class="font-weight-bold">El registro estara habilitado del día <strong>25</strong> al <strong>29</strong> de <strong>Noviembre</strong>.</p>
                <p class="">A partir del día <strong>2</strong> de <strong>Diciembre</strong>, al iniciar sesión, se podra visualizar el <strong>usuario</strong> y su lista de opciones que te asignaron.</p>
                <ul>
                   <li>
@@ -109,7 +110,11 @@ include("includes/header.php");
                            </div>
                         </div>
                         <div class="form-group row contenedor-opcion-1">
-                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-1">Opción 1:</label>
+                           <!-- <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-1">Opción 1:</label> -->
+                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0 d-flex aling-items-center align-items-md-center justify-content-center flex-md-column" for="opcion-1">
+                              <span>Opción 1:</span>
+                              <img class="ml-3 ml-md-0" src="public/images/regalo.svg" alt="" style="max-width: 2.5rem;">
+                           </label>
                            <div class="col-12 col-md-9" id="grupo-opcion-1">
                               <input type="text" class="form-control" id="opcion-1" name="opcion1" required>
                               <div class="contenedor-check-detalles form-check form-check-inline">
@@ -127,7 +132,11 @@ include("includes/header.php");
                            </div>
                         </div>
                         <div class="form-group row contenedor-opcion-2">
-                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-2">Opción 2:</label>
+                           <!-- <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-2">Opción 2:</label> -->
+                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0 d-flex aling-items-center align-items-md-center justify-content-center flex-md-column" for="opcion-2">
+                              <span>Opción 2:</span>
+                              <img class="ml-3 ml-md-0" src="public/images/regalo.svg" alt="" style="max-width: 2.5rem;">
+                           </label>
                            <div class="col-12 col-md-9" id="grupo-opcion-2">
                               <input type="text" class="form-control" id="opcion-2" name="opcion2" required>
                               <div class="contenedor-check-detalles form-check form-check-inline">
@@ -145,7 +154,11 @@ include("includes/header.php");
                            </div>
                         </div>
                         <div class="form-group row contenedor-opcion-3">
-                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-3">Opción 3:</label>
+                           <!-- <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-3">Opción 3:</label> -->
+                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0 d-flex aling-items-center align-items-md-center justify-content-center flex-md-column" for="opcion-3">
+                              <span>Opción 3:</span>
+                              <img class="ml-3 ml-md-0" src="public/images/regalo.svg" alt="" style="max-width: 2.5rem;">
+                           </label>
                            <div class="col-12 col-md-9" id="grupo-opcion-3">
                               <input type="text" class="form-control" id="opcion-3" name="opcion3" required>
                               <div class="contenedor-check-detalles form-check form-check-inline">

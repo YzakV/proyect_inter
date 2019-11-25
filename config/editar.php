@@ -2,7 +2,7 @@
 session_start();
 include("connect.php");
 if(!isset($_POST["opcion1"])){
-   header("Location: ../guardado.php");
+   header("Location: ../home.php");
    exit(1);
    // echo "Definida";
    // exit(1);

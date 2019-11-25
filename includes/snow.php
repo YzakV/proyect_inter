@@ -1,12 +1,12 @@
 <script>
 // Numero de copos, recomendados entre 30 y 40
-var nieve_cantidad=40;
+var nieve_cantidad=30;
 
 // Colores de los copos se mostraran de forma aleatoria
 var nieve_colorr=new Array("#aaaacc","#ddddFF","#ccccDD")
 
 // Tipo de letra de los copos
-var nieve_tipo=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS","Wingdings")
+var nieve_tipo=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS")
 
 // Valor o letra de los copos
 var nieve_letra="*"

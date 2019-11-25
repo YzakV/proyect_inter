@@ -11,7 +11,7 @@ include("includes/header.php");
 ?>
    <body>
       <?php if(isset($_SESSION["message"])){?>
-         <div class="alert alert-<?= $_SESSION["color"]; ?> alert-dismissible fade show" role="alert" style="position: absolute; top: 0; left: 0;">
+         <div class="alert alert-<?= $_SESSION["color"]; ?> alert-dismissible fade show" role="alert">
             <p class="mb-0"><?= $_SESSION["message"]; ?></p>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                <span aria-hidden="true">&times;</span>
@@ -25,10 +25,10 @@ include("includes/header.php");
                <div class="col-12">
                   <h1 class="titulo-guardado">¡Guardado con éxito!</h1>
                   <h2 class="subtitulo-guardado text-muted my-5">Tu usuario así como tus opciones, se guardaron correctamente.</h2>
-                  <p class="text-center parrafo-guardado">Regresa aquí a partir del día lunes <strong>2</strong> de <strong>Diciembre</strong> para conocer al usuario que se te asigno.</p>
+                  <p class="text-center parrafo-guardado">Regresa aquí a partir del día lunes <strong>2</strong> de <strong>Diciembre</strong> para conocer al usuario y su lista de opciones que se te asigno.</p>
                   <div class="grupo-botones-guardado my-5 d-flex justify-content-around justify-content-md-center">
-                     <a class="btn btn-danger mr-md-5" href="config/cerrar.php">Cerrar sesión</a>
-                     <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#exampleModalCenter" id="btn-editar">Editar opciones</a>
+                     <a style="font-weight: 700;" class="btn btn-outline-danger mr-md-5" href="config/cerrar.php">Cerrar sesión</a>
+                     <a style="font-weight: 700;" class="btn btn-outline-info" href="#" data-toggle="modal" data-target="#exampleModalCenter" id="btn-editar">Editar opciones</a>
                   </div>
                </div>
             </div>
@@ -55,7 +55,11 @@ include("includes/header.php");
                            </div>
                         </div> -->
                         <div class="form-group row contenedor-opcion-1">
-                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-1">Opción 1:</label>
+                           <!-- <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-1">Opción 1:</label> -->
+                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0 d-flex aling-items-center align-items-md-center justify-content-center flex-md-column" for="opcion-1">
+                              <span>Opción 1:</span>
+                              <img class="ml-3 ml-md-0" src="public/images/regalo.svg" alt="" style="max-width: 2.5rem;">
+                           </label>
                            <div class="col-12 col-md-9" id="grupo-opcion-1">
                               <input type="text" class="form-control" id="opcion-1" name="opcion1" required>
                               <div class="contenedor-check-detalles form-check form-check-inline">
@@ -73,7 +77,11 @@ include("includes/header.php");
                            </div>
                         </div>
                         <div class="form-group row contenedor-opcion-2">
-                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-2">Opción 2:</label>
+                           <!-- <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-2">Opción 2:</label> -->
+                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0 d-flex aling-items-center align-items-md-center justify-content-center flex-md-column" for="opcion-2">
+                              <span>Opción 2:</span>
+                              <img class="ml-3 ml-md-0" src="public/images/regalo.svg" alt="" style="max-width: 2.5rem;">
+                           </label>
                            <div class="col-12 col-md-9" id="grupo-opcion-2">
                               <input type="text" class="form-control" id="opcion-2" name="opcion2" required>
                               <div class="contenedor-check-detalles form-check form-check-inline">
@@ -91,7 +99,11 @@ include("includes/header.php");
                            </div>
                         </div>
                         <div class="form-group row contenedor-opcion-3">
-                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-3">Opción 3:</label>
+                           <!-- <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0" for="opcion-3">Opción 3:</label> -->
+                           <label class="col-form-label col-12 col-md-3 text-muted mb-3 mb-md-0 d-flex aling-items-center align-items-md-center justify-content-center flex-md-column" for="opcion-3">
+                              <span>Opción 3:</span>
+                              <img class="ml-3 ml-md-0" src="public/images/regalo.svg" alt="" style="max-width: 2.5rem;">
+                           </label>
                            <div class="col-12 col-md-9" id="grupo-opcion-3">
                               <input type="text" class="form-control" id="opcion-3" name="opcion3" required>
                               <div class="contenedor-check-detalles form-check form-check-inline">
@@ -126,19 +138,20 @@ include("includes/header.php");
             </div>
          </div>
       </form>
-
+      <script src="js/jquery-3.4.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
       <script>
-         let id_user = "<?=  $id_user; ?>"; 
-         let botonEditar = document.getElementById("btn-editar"), usuario = document.getElementById("user"), opciones = document.querySelectorAll("input[type=text][id^=opcion"), detalles = document.querySelectorAll("[id=textarea-detalles]"), inputs_id_opciones = document.querySelectorAll("input[type=text][id^=id_opcion");
-         // console.log(inputs_id_opciones);
-         botonEditar.onclick = () => {
+         $(document).ready(function(){
+            let id_user = "<?=  $id_user; ?>";
+            let botonEditar = document.getElementById("btn-editar"), usuario = document.getElementById("user"), opciones = document.querySelectorAll("input[type=text][id^=opcion"), detalles = document.querySelectorAll("[id=textarea-detalles]"), inputs_id_opciones = document.querySelectorAll("input[type=text][id^=id_opcion");
             $.ajax({
                url: "config/buscar_opcion.php",
                type: "POST",
                dataType: "JSON",
                data: {id_user},
                success: function(respuesta){
-                  console.log(respuesta);
+                  // console.log(respuesta);
                   usuario.value = respuesta[0];
                   // for(let i = 0; i < respuesta.length; i++){
 
@@ -165,7 +178,13 @@ include("includes/header.php");
                   // }
                }
             });
-         };
+         });
+         
+         // console.log(inputs_id_opciones);
+         // botonEditar.onclick = () => {
+            
+         // };
       </script>
       <script src="js/script-guardado.js"></script>
-<?php include("includes/footer.php"); ?>
+      </body>
+</html>

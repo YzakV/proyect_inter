@@ -15,7 +15,7 @@ include("includes/nav-index.php");
 
    <body class="hidden">
 <?php if(isset($_SESSION["message"])):?>
-         <div class="alert alert-<?= $_SESSION["color"]; ?> alert-dismissible fade show" role="alert">
+         <div class="alert alert-<?= $_SESSION["color"]; ?> alert-dismissible fade show" style="position: absolute; top: 5rem; left: 0; width:100%" role="alert">
             <p class="mb-0"><?= $_SESSION["message"]; ?></p>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                <span aria-hidden="true">&times;</span>

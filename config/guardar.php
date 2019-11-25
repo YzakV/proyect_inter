@@ -20,6 +20,7 @@ $consulta_id_usuario = "SELECT id_usuario FROM usuarios WHERE nombre_usuario = '
 $r_id_usuario = mysqli_query($conn, $consulta_id_usuario);
 $usuario = mysqli_fetch_array($r_id_usuario);
 $usuario_id = $usuario["id_usuario"];
+$_SESSION["id_user"] = $usuario_id;
 
 foreach($opciones as $clave => $valor){
    $consulta_opciones = "INSERT INTO opciones(id_usuario, opcion, detalle_opcion) VALUES ('$usuario_id', '$valor', '$detalles_opciones[$clave]')";
