@@ -1,8 +1,8 @@
 <?php 
-  $host_name = 'db5000225724.hosting-data.io';
+  $host_name = 'localhost';
   $database = 'dbs220374';
-  $user_name = 'dbu267239';
-  $password = 'qweasdzxC123.';
+  $user_name = 'root';
+  $password = '1234';
   $conn = mysqli_connect($host_name, $user_name, $password, $database);
   
   if (mysqli_connect_errno()) {
