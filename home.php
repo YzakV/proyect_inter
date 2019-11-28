@@ -7,15 +7,24 @@ if(!isset($_SESSION["persona"])){
    header("Location: index.php");
 }
 $id_persona = $_SESSION["id"];
-$consulta = "SELECT id_usuario, nombre_usuario FROM usuarios INNER JOIN personas ON personas.id_persona = usuarios.id_persona WHERE personas.id_persona = '$id_persona'";
+// $consulta = "SELECT id_usuario, nombre_usuario FROM usuarios INNER JOIN personas ON personas.id_persona = usuarios.id_persona WHERE personas.id_persona = '$id_persona'";
+$consulta = "SELECT U.id_usuario, U.nombre_usuario, A.a_id_usuario FROM usuarios U INNER JOIN personas P ON P.id_persona = U.id_persona LEFT JOIN asignacion A ON A.a_id_persona = P.id_persona WHERE P.id_persona = '$id_persona'";
 $r = mysqli_query($conn, $consulta);
 // echo $r;
 // die();
 
 if(mysqli_num_rows($r) > 0){
-   $i = mysqli_fetch_array($r);
-   $_SESSION["id_user"] = $i["id_usuario"];
-   header("Location: guardado.php");
+   $i = mysqli_fetch_assoc($r);
+   // echo print_r($i)."<br>";
+   // echo var_dump($i["a_id_usuario"]);
+   // die();
+
+   if($i["a_id_usuario"] != NULL){
+      header("Location: asignacion.php");
+   } else {
+      $_SESSION["id_user"] = $i["id_usuario"];
+      header("Location: guardado.php");
+   }
 }
 $mes = date("n");
 $mes = intval($mes);

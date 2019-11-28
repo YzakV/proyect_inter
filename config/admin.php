@@ -1,5 +1,10 @@
 <?php
-include("config/connect.php");
+session_start();
+if(!isset($_SESSION["admin"])){
+   header("Location: ../administracion.php");
+   exit(1);
+}
+include("connect.php");
 $conn->query("TRUNCATE TABLE asignacion");
 $id_p_u = $conn->query("SELECT P.id_persona, U.id_usuario FROM personas P INNER JOIN usuarios U ON U.id_persona = P.id_persona");
 
@@ -12,12 +17,13 @@ while($i = $id_p_u->fetch_array()){
    $array_personas[] = $i["id_persona"];
    $array_usuarios[] = $i["id_usuario"];
 }
+
 foreach($array_usuarios as $clave => $valor){
    $array_usuarios_des[] = $array_usuarios[$clave];
 }
-// echo print_r($array_usuarios)."<br>";
+
 $bol = [];
-do{
+do {
    unset($bol);
    shuffle($array_usuarios_des);
    foreach($array_usuarios_des as $clave => $valor){
@@ -27,12 +33,12 @@ do{
          $bol[] = true;
       }
    }
-   // echo print_r($array_usuarios_des)."<p>bol</p>";
 } while(in_array(false, $bol));
-foreach($array_personas as $clave => $valor){
-   $conn->query("INSERT INTO asignacion(id_persona, id_usuario) VALUES ('$valor', '$array_usuarios_des[$clave]')");
-}
 
+foreach($array_personas as $clave => $valor){
+   $conn->query("INSERT INTO asignacion(a_id_persona, a_id_usuario) VALUES ('$valor', '$array_usuarios_des[$clave]')");
+}
+header("Location: ../administracion.php");
 // echo print_r($bol)."<br>";
 // echo print_r($array_usuarios_des)."<p>Definitivo</p>";
 // $bol = [false];

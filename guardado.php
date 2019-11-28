@@ -6,6 +6,8 @@ if(!isset($_SESSION["persona"])){
 }
 // echo "Ya te has registrado, vuelve despues para ver a quien debes darle su regalo";
 $id_user = $_SESSION["id_user"];
+// echo $id_user;
+// die();
 $title = "Guardado";
 include("includes/header.php");
 ?>
@@ -144,6 +146,7 @@ include("includes/header.php");
       <script>
          $(document).ready(function(){
             let id_user = "<?=  $id_user; ?>";
+            console.log(id_user);
             let botonEditar = document.getElementById("btn-editar"), usuario = document.getElementById("user"), opciones = document.querySelectorAll("input[type=text][id^=opcion"), detalles = document.querySelectorAll("[id=textarea-detalles]"), inputs_id_opciones = document.querySelectorAll("input[type=text][id^=id_opcion");
             $.ajax({
                url: "config/buscar_opcion.php",
@@ -152,7 +155,7 @@ include("includes/header.php");
                data: {id_user},
                success: function(respuesta){
                   // console.log(respuesta);
-                  usuario.value = respuesta[0];
+                  // console.log(usuario.value = respuesta[0]);
                   // for(let i = 0; i < respuesta.length; i++){
 
                   //    if(i / 2 = 0){
@@ -178,6 +181,12 @@ include("includes/header.php");
                   // }
                }
             });
+            // .done(function(respuesta){
+            //    console.log(respuesta);
+            // })
+            // .fail(function(a){
+            //    console.log(a)
+            // })
          });
          
          // console.log(inputs_id_opciones);
