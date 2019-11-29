@@ -1,11 +1,11 @@
 <?php
 session_start();
 // echo '<pre>'.print_r($_SESSION,1).'</pre>';
-include("config/connect.php");
 
 if(!isset($_SESSION["persona"])){
    header("Location: index.php");
 }
+include("config/connect.php");
 $id_persona = $_SESSION["id"];
 // $consulta = "SELECT id_usuario, nombre_usuario FROM usuarios INNER JOIN personas ON personas.id_persona = usuarios.id_persona WHERE personas.id_persona = '$id_persona'";
 $consulta = "SELECT U.id_usuario, U.nombre_usuario, A.a_id_usuario FROM usuarios U INNER JOIN personas P ON P.id_persona = U.id_persona LEFT JOIN asignacion A ON A.a_id_persona = P.id_persona WHERE P.id_persona = '$id_persona'";
@@ -20,6 +20,7 @@ if(mysqli_num_rows($r) > 0){
    // die();
 
    if($i["a_id_usuario"] != NULL){
+      $_SESSION["usuario_asignado"] = $i["a_id_usuario"];
       header("Location: asignacion.php");
    } else {
       $_SESSION["id_user"] = $i["id_usuario"];

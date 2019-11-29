@@ -146,7 +146,7 @@ include("includes/header.php");
       <script>
          $(document).ready(function(){
             let id_user = "<?=  $id_user; ?>";
-            console.log(id_user);
+            // console.log(id_user);
             let botonEditar = document.getElementById("btn-editar"), usuario = document.getElementById("user"), opciones = document.querySelectorAll("input[type=text][id^=opcion"), detalles = document.querySelectorAll("[id=textarea-detalles]"), inputs_id_opciones = document.querySelectorAll("input[type=text][id^=id_opcion");
             $.ajax({
                url: "config/buscar_opcion.php",
@@ -155,7 +155,6 @@ include("includes/header.php");
                data: {id_user},
                success: function(respuesta){
                   // console.log(respuesta);
-                  // console.log(usuario.value = respuesta[0]);
                   // for(let i = 0; i < respuesta.length; i++){
 
                   //    if(i / 2 = 0){
@@ -164,6 +163,7 @@ include("includes/header.php");
                         
                   //    }
                   // }
+                  usuario.value = respuesta[0];
                   inputs_id_opciones[0].value = respuesta[1]; 
                   inputs_id_opciones[1].value = respuesta[4];
                   inputs_id_opciones[2].value = respuesta[7];

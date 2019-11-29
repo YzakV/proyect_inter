@@ -8,7 +8,7 @@ $r = mysqli_query($conn, $consulta_usuario);
 $objeto = [];
 
 $i = mysqli_fetch_array($r);
-$objeto[] = $i["nombre_usuario"];
+$objeto[] = utf8_encode($i["nombre_usuario"]);
 
 $consulta_opciones = "SELECT * FROM opciones WHERE id_usuario = '$id_user'";
 $r_opciones = mysqli_query($conn, $consulta_opciones);
