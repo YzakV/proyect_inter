@@ -6,14 +6,21 @@ if(!isset($_SESSION["usuario_asignado"])){
 include("config/connect.php");
 $id_user_asignado = $_SESSION["usuario_asignado"];
 
-$consulta = $conn->query("SELECT P.nombre_persona, U.nombre_usuario, O.opcion, O.detalle_opcion FROM usuarios U INNER JOIN personas P ON P.id_persona = U.id_persona INNER JOIN opciones O ON U.id_usuario = O.id_usuario WHERE U.id_usuario = '$id_user_asignado'");
+$consulta = $conn->query("SELECT P.nombre_persona, U.nombre_usuario, U.genero, O.opcion, O.detalle_opcion FROM usuarios U INNER JOIN personas P ON P.id_persona = U.id_persona INNER JOIN opciones O ON U.id_usuario = O.id_usuario WHERE U.id_usuario = '$id_user_asignado'");
 // echo print_r($consulta);
 $opciones = [];
+$genero;
 
 while($i = $consulta->fetch_assoc()){
    $opciones["nombre_usuario"] = $i["nombre_usuario"];
+   $opciones["genero"] = $i["genero"];
    $opciones[] = $i["opcion"];
    $opciones[] = $i["detalle_opcion"];
+}
+if($opciones["genero"] == "F"){
+   $genero = "<span class='women' style='display: inline-block; padding: 0 .5rem;'>Femenino</span>";
+} else {
+   $genero = "<span class='men' style='display: inline-block; padding: 0 .5rem;'>Masculino</span>";
 }
 $title = "Asignación";
 include("includes/header.php");
@@ -31,8 +38,9 @@ include("includes/header.php");
                      <span>Usuario asignado:</span>
                      <a class="cerrar-sesion text-right" href="config/cerrar.php">X Cerrar sesión</a>
                   </div>
-                  <h1 class="titulo-asignacion mb-5"><?= $opciones["nombre_usuario"]; ?></h1>
-                  <p>Su lista de opciones, es la siguiente:</p>
+                  <h1 class="titulo-asignacion"><?= $opciones["nombre_usuario"]; ?></h1>
+                  <?= $genero; ?>
+                  <p class="mt-3">Su lista de opciones, es la siguiente:</p>
                   <div class="list-group">
                      <a href="#" class="list-group-item list-group-item-action">
                         <div class="d-flex w-100 justify-content-between">

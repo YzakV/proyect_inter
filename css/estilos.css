@@ -431,6 +431,7 @@ input[id^="opcion"] {
    /* text-overflow: ellipsis; */
    width: 100%;
    overflow: auto;
+   margin: 0;
 }
 @media(min-width: 520px){
    .contenedor-asignacion .titulo-asignacion {
